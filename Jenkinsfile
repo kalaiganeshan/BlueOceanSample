@@ -9,10 +9,15 @@ pipeline {
             
           },
           "In Parallel": {
-            echo 'Hello!'
+            echo 'Hello in parallel!'
             
           }
         )
+      }
+    }
+    stage('Stage 2') {
+      steps {
+        sh 'mvn -v'
       }
     }
   }
