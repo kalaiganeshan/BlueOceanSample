@@ -11,13 +11,17 @@ pipeline {
           "In Parallel": {
             echo 'Hello in parallel!'
             
+          },
+          "Parallel 3": {
+            echo 'Hello!!!'
+            
           }
         )
       }
     }
     stage('Stage 2') {
       steps {
-        sh 'mvn -v'
+        echo 'Hello again!'
       }
     }
   }
