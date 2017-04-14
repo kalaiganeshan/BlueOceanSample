@@ -24,7 +24,7 @@ pipeline {
         )
       }
     }
-    stage('Deploying') {
+    stage('Deploy') {
       steps {
         echo 'Ship It!'
       }
