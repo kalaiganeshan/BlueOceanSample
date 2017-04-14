@@ -1,27 +1,32 @@
 pipeline {
   agent any
   stages {
-    stage('Stage 1') {
+    stage('Build') {
+      steps {
+        echo 'I am building some code!'
+      }
+    }
+    stage('Test') {
       steps {
         parallel(
-          "Print Hello": {
-            echo 'Hello!'
+          "Unit Tests": {
+            echo 'Unit Tests Are Awesome!'
             
           },
-          "In Parallel": {
-            echo 'Hello in parallel!'
+          "Integration Tests": {
+            echo 'Integration Tests Are Awesome!'
             
           },
-          "Parallel 3": {
-            echo 'Hello!!!'
+          "Smoke Tests": {
+            echo 'Where There is Smoke there is Fire!!!'
             
           }
         )
       }
     }
-    stage('Stage 2') {
+    stage('Deploying') {
       steps {
-        echo 'Hello again!'
+        echo 'Ship It!'
       }
     }
   }
