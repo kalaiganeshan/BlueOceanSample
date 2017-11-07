@@ -7,21 +7,27 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        parallel(
-          "Unit Tests": {
+      parallel {
+        stage('Unit Tests') {
+          steps {
             echo 'Unit Tests Are Awesome!'
-            
-          },
-          "Integration Tests": {
-            echo 'Integration Tests Are Awesome!'
-            
-          },
-          "Smoke Tests": {
-            echo 'Where There is Smoke there is Fire!!!'
-            
           }
-        )
+        }
+        stage('Integration Tests') {
+          steps {
+            echo 'Integration Tests Are Awesome!'
+          }
+        }
+        stage('Smoke Tests') {
+          steps {
+            echo 'Where There is Smoke there is Fire!!!'
+          }
+        }
+        stage('Reg Test') {
+          steps {
+            echo 'Reg Test executed'
+          }
+        }
       }
     }
     stage('Deploy') {
